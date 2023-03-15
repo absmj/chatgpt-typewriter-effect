@@ -61,46 +61,80 @@
 			/* Adjust the values below to control the size and font of the text */
 			font-size: 18px;
 			font-family: monospace;
+			line-height: 1.2;
 			/* Adjust the values below to control the blink rate and color of the cursor */
 			border-right: 0.15em solid #6d84b4;
 			animation: blink 0.7s infinite;
 			margin-top: 20px;
 			height: 80px;
 			vertical-align: top;
+			padding-right: 5px;
+			box-sizing: border-box;
 		}
 		@keyframes blink {
 			50% {
 				border-color: transparent;
 			}
 		}
+		.cursor {
+			display: inline-block;
+			height: 20px;
+			width: 10px;
+			background-color: #6d84b4;
+			position: relative;
+			top: -1px;
+			left: -5px;
+			animation: blink 0.7s infinite;
+			border-radius: 0 50% 50% 50%;
+			overflow: hidden;
+			box-sizing: border-box;
+		}
+		.cursor:before {
+			content: "";
+			display: block;
+			height: 10px;
+			width: 10px;
+			background-color: #fff;
+			position: absolute;
+			top: -5px;
+			left: -1px;
+			transform: rotate(45deg);
+			box-sizing: border-box;
+		}
+		.cursor:after {
+			content: "";
+			display: block;
+			height: 10px;
+			width: 10px;
+			background-color: #fff;
+			position: absolute;
+			bottom: -5px;
+			left: -1px;
+			transform: rotate(-45deg);
+			box-sizing: border-box;
+		}
 	</style>
 </head>
 <body>
-	<!-- Add the ChatGPT design -->
 	<div class="container">
 		<h1>ChatGPT</h1>
-		<p>Chat with our AI assistant</p>
-
-		<!-- Add a container for the text and apply the typewriter class -->
-		<div class="typewriter">
-			Hello, I'm ChatGPT. How can I help you today?
-		</div>
+		<p class="typewriter">Hello, I'm ChatGPT, a large language model trained by OpenAI.</p>
 	</div>
-
 	<script>
 		// Set up the JavaScript for the typewriter effect
-		var text = "Hello, I'm ChatGPT. How can I help you today?"; // Replace with your own text
-		var delay = 50; // Adjust this value to control the speed of typing
 		var i = 0;
+		var txt = "Hello, I'm ChatGPT, a large language model trained by OpenAI."; // Replace this with your desired text
+		var speed = 50; // Adjust this value to control the speed of the typing
 		function type() {
-			if (i < text.length) {
-				document.querySelector(".typewriter").innerHTML += text.charAt(i);
+			if (i < txt.length) {
+				document.querySelector(".typewriter").innerHTML += txt.charAt(i);
 				i++;
-				setTimeout(type, delay);
+				setTimeout(type, speed);
 			}
-			
 		}
 		setTimeout(type, 2000); // Adjust this value to control the delay before the typing starts
 	</script>
 </body>
 </html>
+
+		
