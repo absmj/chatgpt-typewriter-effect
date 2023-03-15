@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ChatGPT Typewriter Effect</title>
+	<style>
+		/* Set up the CSS for the ChatGPT design */
+		body {
+			background-color: #f1f1f1;
+			font-family: Arial, sans-serif;
+			margin: 0;
+		}
+		.container {
+			background-color: #fff;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+			max-width: 400px;
+			margin: 20px auto;
+			overflow: hidden;
+			padding: 20px;
+			position: relative;
+			height: 400px;
+			box-sizing: border-box;
+		}
+		.container:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 10px;
+			width: 100%;
+			background-color: #6d84b4;
+			border-radius: 5px 5px 0 0;
+		}
+		.container:after {
+			content: "";
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 40px;
+			width: 100%;
+			background-color: #fff;
+		}
+		.container h1 {
+			color: #fff;
+			font-size: 24px;
+			margin: 0;
+			text-align: center;
+			text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+		}
+		.container p {
+			margin: 0;
+		}
+
+		/* Set up the CSS for the typewriter effect */
+		.typewriter {
+			display: inline-block;
+			overflow: hidden;
+			/* Adjust the values below to control the size and font of the text */
+			font-size: 18px;
+			font-family: monospace;
+			/* Adjust the values below to control the blink rate and color of the cursor */
+			border-right: 0.15em solid #6d84b4;
+			animation: blink 0.7s infinite;
+			margin-top: 20px;
+			height: 80px;
+			vertical-align: top;
+		}
+		@keyframes blink {
+			50% {
+				border-color: transparent;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- Add the ChatGPT design -->
+	<div class="container">
+		<h1>ChatGPT</h1>
+		<p>Chat with our AI assistant</p>
+
+		<!-- Add a container for the text and apply the typewriter class -->
+		<div class="typewriter">
+			Hello, I'm ChatGPT. How can I help you today?
+		</div>
+	</div>
+
+	<script>
+		// Set up the JavaScript for the typewriter effect
+		var text = "Hello, I'm ChatGPT. How can I help you today?"; // Replace with your own text
+		var delay = 50; // Adjust this value to control the speed of typing
+		var i = 0;
+		function type() {
+			if (i < text.length) {
+				document.querySelector(".typewriter").innerHTML += text.charAt(i);
+				i++;
+				setTimeout(type, delay);
+			}
+			
+		}
+		setTimeout(type, 2000); // Adjust this value to control the delay before the typing starts
+	</script>
+</body>
+</html>
